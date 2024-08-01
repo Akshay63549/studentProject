@@ -76,7 +76,7 @@ exports.update_product = async (req, res) => {
         const existingProduct = await Product.findById(id);
         
         if (
-            !req.body.gallery?.length > 0 &&
+            !req?.body?.gallery?.length > 0 &&
             req.files &&
             req.files.gallery?.length > 0
           ) {
@@ -91,7 +91,7 @@ exports.update_product = async (req, res) => {
           }
 
 
-        if (req.files.gallery.length) {
+        if (req?.files?.gallery?.length) {
           gallery = req.files.gallery.map((file) => ({
             url: file.path,
             public_id: file.filename,
